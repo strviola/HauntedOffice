@@ -1,0 +1,21 @@
+h1 Listing tails
+
+table
+  thead
+    tr
+      th Title
+      th Teller
+      th
+      th
+
+  tbody
+    - @tails.each do |tail|
+      tr
+        td = link_to tail.title ,tail
+        td = tail.teller
+        td = link_to 'Edit', edit_tail_path(tail)
+        td = link_to 'Destroy', tail, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Tail', new_tail_path

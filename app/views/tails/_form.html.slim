@@ -1,0 +1,18 @@
+= form_for @tail do |f|
+  - if @tail.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@tail.errors.count, "error")} prohibited this tail from being saved:"
+      ul
+        - @tail.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :content
+    = f.text_field :content
+  .field
+    = f.label :teller
+    = f.text_field :teller
+  .actions = f.submit

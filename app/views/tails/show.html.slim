@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @tail.title
+p
+  strong Content:
+  = @tail.content
+p
+  strong Teller:
+  = @tail.teller
+
+= link_to 'Edit', edit_tail_path(@tail)
+'|
+= link_to 'Back', tails_path
