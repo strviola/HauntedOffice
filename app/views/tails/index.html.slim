@@ -15,17 +15,17 @@ table.table.table-striped
     tr
       th= model_class.human_attribute_name(:id)
       th= model_class.human_attribute_name(:title)
-      th= model_class.human_attribute_name(:teller)
       th=t '.actions', :default => t("helpers.actions")
   tbody
-    - @tails.each do |tail|
+    - @tails.reverse.each do |tail|
       tr
         td= tail.id
-        td= link_to tail.title, tail_path(tail)
-        td= tail.teller
+        td.title = link_to tail.title, tail_path(tail)
         td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_tail_path(tail), :class => 'btn btn-default btn-xs'
           '
           = link_to t('.destroy', :default => t("helpers.links.destroy")), tail_path(tail), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+
+hr
 
 = link_to '怪談を話す', new_tail_path, :class => 'btn btn-primary'

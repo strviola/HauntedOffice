@@ -5,9 +5,10 @@
 p
   br
   = @tail.content
-p
+p.teller
   br
-  = '--- ' + @tail.teller
+  - unless @tail.teller.blank?
+    = '- ' + @tail.teller
 
 = link_to t('.back', :default => t("helpers.links.back")), tails_path, :class => 'btn btn-default'
 '
