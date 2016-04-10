@@ -1,8 +1,4 @@
-h1 Editing tail
-
-== render 'form'
-
-= link_to 'Show', @tail
-'|
-= link_to 'Back', tails_path
-
+- model_class = Tail
+.page-header
+  h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
+= render :partial => "form"

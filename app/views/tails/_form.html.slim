@@ -1,18 +1,21 @@
-= form_for @tail do |f|
-  - if @tail.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@tail.errors.count, "error")} prohibited this tail from being saved:"
-      ul
-        - @tail.errors.full_messages.each do |message|
-          li = message
-
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :content
-    = f.text_field :content
-  .field
-    = f.label :teller
-    = f.text_field :teller
-  .actions = f.submit
+= form_for @tail, html: { class: "form form-horizontal tail" } do |f|
+  .form-group
+    = f.label :title, :class => 'control-label col-lg-4'
+    .col-lg-10
+      = f.text_field :title, :class => 'form-control'
+    = f.error_span(:title)
+  .form-group
+    = f.label :content, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_area :content, :class => 'form-control', :size => '80x6'
+    = f.error_span(:content)
+  .form-group
+    = f.label :teller, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :teller, :class => 'form-control'
+    = f.error_span(:teller)
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = f.submit nil, :class => 'btn btn-primary'
+      '
+      = link_to t('.cancel', :default => t("helpers.links.cancel")), tails_path, :class => 'btn'
