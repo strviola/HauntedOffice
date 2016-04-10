@@ -55,4 +55,6 @@ end
 group :producton do
   # use PostgresSQL for production environment
   gem 'pg'
+  # static assets for Heroku server
+  gem 'rails_12factor', '0.0.2'
 end
